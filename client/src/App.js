@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./Css/App.css";
+import "./Css/Chat.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./Pages/Home";
+import About from "./Pages/About";
+import Chat from "./Pages/Chat";
+import ErrorPage from "./Pages/ErrorPage";
+import NavBar from "./components/NavBar";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<>
+			<Router>
+				<NavBar></NavBar>
+				<div id="body">
+					<Routes>
+						{/* <Route path="/" element={<Chat />} /> */}
+						<Route path="/" element={<Home />} />
+						<Route path="/about" element={<About />} />
+						<Route path="/chat" element={<Chat />} />
+						<Route path="*" element={<ErrorPage />} />
+					</Routes>
+				</div>
+			</Router>
+		</>
+	);
 }
 
 export default App;

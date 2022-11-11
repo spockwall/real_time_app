@@ -1,0 +1,129 @@
+.chatBox {
+	width: 50%;
+	margin: 1rem auto;
+	border: solid;
+	height: 40rem;
+}
+
+.room-title {
+	padding: 3px;
+	height: 10%;
+}
+.room-title h1{
+	padding: 1rem;
+}
+
+
+.msg-window {
+	height: 78%;
+	width: 90%;
+	padding: 3px;
+	border: solid;
+	margin: 0rem auto 0.5rem;
+	overflow-y: scroll;
+}
+
+.input-container {
+	/* border: solid; */
+	padding: 3px;
+	margin: auto;
+	flex-direction: column;
+	height: 10%;
+}
+.input-container input{
+    padding-left: 2%;
+    height: 50%;
+	margin-left: 2%;
+	display: inline;
+	width: 75%;
+}
+.input-container button {
+    height: 50%;
+    display: inline;
+	width: 15%;
+}
+
+.join_room-container {
+    height: 15rem;
+    width: 50%;
+    margin: 5rem auto;
+    border: solid;
+}
+
+.join_room-container input {
+    margin: 1rem auto;
+    padding-left: 5px;
+    display: flex;
+    height: 15%;
+	width: 80%;
+
+}
+.join_room-container button {
+    padding: 2px 5px;
+    margin: 1rem auto;
+    display: flex;
+    height: 10%;
+}
+
+.join_room-title {
+    margin: 1rem auto;
+    height: 20%;
+    width: 20%;
+}
+
+.msg-container {
+	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+.msg-username-other {
+	margin-left: 3%;
+	width: 40%;
+	font-size: 18px;
+	padding: 0.3rem;
+}
+
+.msg-content-other {
+	margin-left: 3%;
+	border: solid;
+	width: fit-content;
+	max-width: 60%;
+	overflow: scroll;
+	font-size: 20px;
+	padding: 0.3rem;
+}
+
+.msg-time-other {
+	margin-left: 1%;
+	width: 40%;
+	padding: 0.3rem;
+}
+.msg-username-me {
+	margin-left: auto;
+	margin-right: 3%;
+	width: 40%;
+	font-size: 18px;
+	text-align: right;
+	padding: 0.3rem;
+}
+
+.msg-content-me {
+	margin-right: 3%;
+	margin-left: auto;
+	border: solid;
+	max-width: 60%;
+	overflow: scroll;
+	width: fit-content;
+	font-size: 20px;
+	padding: 0.3rem;
+}
+
+.msg-time-me {
+	margin-right: 1%;
+	margin-left: auto;
+	width: 40%;
+	padding: 0.3rem;
+	text-align: right;
+}
