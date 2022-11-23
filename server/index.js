@@ -1,17 +1,23 @@
 const express = require("express");
 const http = require("http");
 const app = express();
+const os = require("os");
 const { Server } = require("socket.io");
+const cors = require("cors");
 
 const server = http.createServer(app);
-
 const io = new Server(server, {
 	cors: {
-		origin: "http://localhost:3000",
+		origin: "*",
 		methods: ["GET", "POST"],
 	},
 });
+const PORT = process.env.PORT || 3001;
 
+app.set(cors());
+app.get("/", (req, res) => {
+	res.send("server is running");
+});
 io.on("connection", (socket) => {
 	console.log("socket id: ", socket.id);
 	socket.on("join_room", (data) => {
@@ -24,8 +30,18 @@ io.on("connection", (socket) => {
 	socket.on("disconnect", () => {
 		console.log("User Disconnected", socket.id);
 	});
+
+	socket.emit("myID", socket.id);
+
+	socket.on("calluser", ({ userToCall, signalData, from, name }) => {
+		io.to(userToCall).emit("calluser", { signal: signalData, from, name });
+	});
+	socket.on("answercall", (data) => {
+		console.log("to", data.to);
+		io.to(data.to).emit("callAccepted", data.signal);
+	});
 });
 
-server.listen(3001, () => {
+server.listen(3001, "0.0.0.0", () => {
 	console.log("server is running");
 });

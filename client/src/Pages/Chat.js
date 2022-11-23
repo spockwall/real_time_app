@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { io } from "socket.io-client";
 import ChatBox from "../components/ChatBox";
 
@@ -19,10 +19,10 @@ export default function Chat() {
 		} else alert("please fill up the blank!");
 	};
 	return !showChatBox ? (
-		<div className='join_room-container'>
-            <div className="join_room-title">
-                <h2>Join Room</h2>
-            </div>
+		<div className="join_room-container">
+			<div className="join_room-title">
+				<h2>Join Room</h2>
+			</div>
 			<input
 				type="text"
 				placeholder="username"

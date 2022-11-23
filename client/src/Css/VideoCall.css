@@ -1,0 +1,52 @@
+.video-container {
+	width: 20rem;
+	margin: auto;
+	padding: 5px;
+}
+
+.video-container .video {
+	height: 100%;
+	width: 100%;
+	object-fit: fill;
+}
+
+.info-container {
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 30rem;
+	margin: auto;
+	padding: 0.5rem;
+	justify-content: center;
+}
+
+.info-container .inputField {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	width: 80%;
+	margin: auto;
+	margin-bottom: 1rem;
+
+}
+
+.info-container .inputField h4{
+	width: 100%;
+	text-align: center;
+}
+
+.info-container .inputField button{
+	width: 105%;
+	height: 1.5rem;
+	margin: auto;
+}
+
+.info-container .inputField input{
+	padding: 0.2rem 0.5rem;
+	width: 100%;
+	margin: auto;
+}
+.info-container .inputField div{
+	padding: 0.2rem 0.5rem;
+	width: 100%;
+	text-align: center;
+}

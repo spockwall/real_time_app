@@ -21,6 +21,10 @@ export default function NavBar() {
 			text: "Chat",
 			url: "/chat",
 		},
+		{
+			text: "Video Call",
+			url: "/videocall",
+		},
 	];
 	return (
 		<nav className="navbar">
