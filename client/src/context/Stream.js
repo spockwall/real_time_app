@@ -29,8 +29,13 @@ const StreamContextProvider = ({ children }) => {
 		socket.on("calluser", ({ from, name, signal }) => {
 			setCall({ isReceivingCall: true, from, name, signal });
 		});
-		socket.on("callAccepted", (signal) => {
+		socket.on("callaccepted", (signal) => {
 			setCallAccepted(true);
+		});
+		socket.on("callended", () => {
+			setCallEnded(true);
+			connectionRef.current.destroy();
+			window.location.reload();
 		});
 	}, []);
 
@@ -40,7 +45,6 @@ const StreamContextProvider = ({ children }) => {
 		const peer = new Peer({ initiator: false, trickle: false, stream });
 
 		peer.on("signal", (data) => {
-			console.log(call.from);
 			socket.emit("answercall", { signal: data, to: call.from });
 		});
 
@@ -60,22 +64,19 @@ const StreamContextProvider = ({ children }) => {
 		});
 
 		peer.on("stream", (currentStream) => {
-			console.log("good");
 			userVideo.current.srcObject = currentStream;
 		});
 
-		socket.on("callAccepted", (signal) => {
+		socket.on("callaccepted", (signal) => {
 			setCallAccepted(true);
 			peer.signal(signal);
 		});
-		console.log("good");
 		connectionRef.current = peer;
 	};
 
-	const leaveCall = () => {
+	const leaveCall = (id) => {
 		setCallEnded(true);
-		connectionRef.current.destroy();
-		window.location.reload();
+		socket.emit("leavecall", { to: id });
 	};
 
 	return (

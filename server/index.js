@@ -36,9 +36,14 @@ io.on("connection", (socket) => {
 	socket.on("calluser", ({ userToCall, signalData, from, name }) => {
 		io.to(userToCall).emit("calluser", { signal: signalData, from, name });
 	});
+
 	socket.on("answercall", (data) => {
-		console.log("to", data.to);
-		io.to(data.to).emit("callAccepted", data.signal);
+		io.to(data.to).emit("callaccepted", data.signal);
+	});
+
+	socket.on("leavecall", (data) => {
+		console.log("good");
+		io.to(data.to).emit("callended", socket.id);
 	});
 });
 

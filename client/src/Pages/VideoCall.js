@@ -21,9 +21,15 @@ export default function VideoCall() {
 	return (
 		<>
 			{call.isReceivingCall && !callAccepted && (
-				<div>
+				<div className="notification">
 					<h2>{call.name} is calling</h2>
-					<button variant="contained" onClick={answerCall}>
+					<button
+						variant="contained"
+						onClick={() => {
+							answerCall();
+							setIdToCall(call.from);
+						}}
+					>
 						Answer
 					</button>
 				</div>
@@ -62,7 +68,14 @@ export default function VideoCall() {
 						disabled={callAccepted && !callEnded}
 					></input>
 					{callAccepted && !callEnded ? (
-						<button onClick={leaveCall}>Hang up</button>
+						<button
+							onClick={() => {
+								leaveCall(idToCall);
+								setIdToCall("");
+							}}
+						>
+							Hang up
+						</button>
 					) : (
 						<button
 							onClick={() => {
