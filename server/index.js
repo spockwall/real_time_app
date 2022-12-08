@@ -13,7 +13,7 @@ dotenv.config();
 mongoose.connect(process.env.DATABASE_ACCESS, (data) => console.log("connected to database!!"));
 app.use(express.json()); // ?
 app.use(cors()); // ?
-// app.use("/user", routesUrls);
+app.use("/user", routesUrls);
 app.use("/user", routesUrls2);
 
 

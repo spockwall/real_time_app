@@ -18,14 +18,14 @@ router.post("/signin", async (req, res) => {
 						});
 					}
 					//   create JWT token
-					const token = jwt.sign(
-						{
-							userId: user._id,
-							userEmail: user.email,
-						},
-						"RANDOM-TOKEN",
-						{ expiresIn: "24h" }
-					);
+					// const token = jwt.sign(
+					// 	{
+					// 		userId: user._id,
+					// 		userEmail: user.email,
+					// 	},
+					// 	"RANDOM-TOKEN",
+					// 	{ expiresIn: "24h" }
+					// );
 					res.status(200).send({
 						message: "Login Successful",
 						username: user?.username,

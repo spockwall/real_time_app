@@ -16,8 +16,7 @@ router.post("/signup", async (req, res) => {
 	signUpUser
 		.save()
 		.then((data) => {
-			res.json(data);
-			// console.log(data);
+			res.json({token});
 		})
 		.catch((error) => {
 			res.json(error);
