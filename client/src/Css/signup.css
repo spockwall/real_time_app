@@ -1,0 +1,46 @@
+.signup-container {
+	border: solid;
+	margin: auto;
+	height: 15rem;
+	width: 20rem;
+	margin-top: 10rem;
+	display: grid;
+	padding: 1rem;
+}
+
+.signin-container {
+	height: 11rem;
+}
+
+.signup-container button {
+	display: grid;
+	margin: auto;
+	width: 80%;
+	height: 1.5rem;
+}
+.signup-container a {
+	display: grid;
+	margin: auto;
+}
+.input-container {
+	display: grid;
+	margin: 1.5rem auto;
+	width: 90%;
+	grid-template-columns: 1fr 5fr;
+	text-align: center;
+}
+.input-container input {
+	display: grid;
+	margin: auto;
+	width: 80%;
+	justify-self: end;
+	grid-template-columns: 1fr 5fr;
+	height: 1.5rem;
+}
+
+.input-container span {
+	margin: auto;
+	width: 4rem;
+	height: 1.5rem;
+	font-size: 1rem;
+}

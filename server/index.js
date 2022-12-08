@@ -1,9 +1,21 @@
+const dotenv = require("dotenv");
 const express = require("express");
 const http = require("http");
-const app = express();
 const os = require("os");
 const { Server } = require("socket.io");
 const cors = require("cors");
+const mongoose = require("mongoose");
+const routesUrls = require("./routes/signup");
+const routesUrls2 = require("./routes/signin");
+
+const app = express();
+dotenv.config();
+mongoose.connect(process.env.DATABASE_ACCESS, (data) => console.log("connected to database!!"));
+app.use(express.json()); // ?
+app.use(cors()); // ?
+// app.use("/user", routesUrls);
+app.use("/user", routesUrls2);
+
 
 const server = http.createServer(app);
 const io = new Server(server, {
@@ -49,4 +61,8 @@ io.on("connection", (socket) => {
 
 server.listen(3001, "0.0.0.0", () => {
 	console.log("server is running");
+});
+
+app.listen(4000, () => {
+	console.log("fucking good");
 });
