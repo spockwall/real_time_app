@@ -1,11 +1,13 @@
-import { useState } from "react";
-import {useNavigate} from "react-router-dom"
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import AuthContext from "../context/Auth";
 import axios from "axios";
 
 export default function Signup() {
 	const [username, setUsername] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const { setAuth } = useContext(AuthContext);
 	const navigate = useNavigate();
 	const register = (e) => {
 		e.preventDefault();
@@ -15,10 +17,10 @@ export default function Signup() {
 			password,
 		};
 		axios
-			.post("http://localhost:4000/user/signup", info)
+			.post("http://localhost:4000/user/signup", info, { withCredentials: true })
 			.then((data) => {
-				console.log(data);
-				window.alert("sign up successfully")
+				setAuth(true);
+				window.alert("sign up successfully");
 				navigate("/");
 			})
 			.catch((err) => {
@@ -29,36 +31,39 @@ export default function Signup() {
 		<>
 			<div className="signup-container">
 				<form onSubmit={register}>
-					<div className="input-container">
+					<div className="sign-container">
 						<span>{"Username"}</span>
 						<input
 							type="text"
 							onChange={(e) => {
 								setUsername(e.target.value);
 							}}
+							required
 						/>
 					</div>
-					<div className="input-container">
+					<div className="sign-container">
 						<span>{"Email"}</span>
 						<input
 							type="email"
 							onChange={(e) => {
 								setEmail(e.target.value);
 							}}
+							required
 						/>
 					</div>
-					<div className="input-container">
+					<div className="sign-container">
 						<span>{"Password"}</span>
 						<input
 							type="password"
 							onChange={(e) => {
 								setPassword(e.target.value);
 							}}
+							required
 						/>
 					</div>
 					<button type="submit">sign up</button>
 				</form>
-				<a href='/signin'>sign in</a>
+				<a href="/signin">sign in</a>
 			</div>
 		</>
 	);

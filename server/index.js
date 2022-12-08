@@ -7,17 +7,33 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const routesUrls = require("./routes/signup");
 const routesUrls2 = require("./routes/signin");
+const cookieparser = require("cookie-parser");
+const { validateToken } = require("./jwt");
 
 const app = express();
 dotenv.config();
 mongoose.connect(process.env.DATABASE_ACCESS, (data) => console.log("connected to database!!"));
+app.use(cookieparser());
+
 app.use(express.json()); // ?
-app.use(cors()); // ?
+app.use(
+	cors({
+		origin: "http://localhost:3000",
+		// methods: ["GET", "POST"],
+		credentials: true,
+	})
+);
 app.use("/user", routesUrls);
 app.use("/user", routesUrls2);
+app.get("/", (req, res) => {
+	res.send("server is running");
+});
 
-
+app.get("/valid", validateToken, (req, res) => {
+	res.send("valid!!");
+});
 const server = http.createServer(app);
+
 const io = new Server(server, {
 	cors: {
 		origin: "*",
@@ -26,10 +42,6 @@ const io = new Server(server, {
 });
 const PORT = process.env.PORT || 3001;
 
-app.set(cors());
-app.get("/", (req, res) => {
-	res.send("server is running");
-});
 io.on("connection", (socket) => {
 	console.log("socket id: ", socket.id);
 	socket.on("join_room", (data) => {

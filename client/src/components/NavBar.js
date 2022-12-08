@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import AuthContext from "../context/Auth";
 
 export default function NavBar() {
 	const NavItem = (props) => {
@@ -8,6 +10,7 @@ export default function NavBar() {
 			</div>
 		);
 	};
+	const { auth, setAuth } = useContext(AuthContext);
 	let navList = [
 		{
 			text: "Home",
@@ -26,7 +29,7 @@ export default function NavBar() {
 			url: "/videocall",
 		},
 	];
-	return (
+	return auth ? (
 		<nav className="navbar">
 			<div className="navbar-item-container">
 				{navList.map((item) => (
@@ -36,5 +39,9 @@ export default function NavBar() {
 				))}
 			</div>
 		</nav>
+	) : (
+		<div className="welcome-container">
+			<div className="welcome">A good website</div>
+		</div>
 	);
 }

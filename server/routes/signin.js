@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const router = express.Router();
 const User = require("../models/signup"); // the collection
+const { createTokens, validateToken } = require("../jwt");
 
 router.post("/signin", async (req, res) => {
 	User.findOne({ username: req.body.username })
@@ -17,19 +18,13 @@ router.post("/signin", async (req, res) => {
 							error,
 						});
 					}
-					//   create JWT token
-					// const token = jwt.sign(
-					// 	{
-					// 		userId: user._id,
-					// 		userEmail: user.email,
-					// 	},
-					// 	"RANDOM-TOKEN",
-					// 	{ expiresIn: "24h" }
-					// );
+					const token = createTokens(user);
+					res.cookie("accessToken", token, {
+						maxAge: 60 * 60 * 24 * 30 * 1000, // 30days
+						// httpOnly: false,
+					});
 					res.status(200).send({
 						message: "Login Successful",
-						username: user?.username,
-						token,
 					});
 				})
 				.catch((error) => {

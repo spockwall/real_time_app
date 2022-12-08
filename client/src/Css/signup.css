@@ -1,7 +1,7 @@
 .signup-container {
 	border: solid;
 	margin: auto;
-	height: 15rem;
+	height: 20rem;
 	width: 20rem;
 	margin-top: 10rem;
 	display: grid;
@@ -9,27 +9,33 @@
 }
 
 .signin-container {
-	height: 11rem;
+	border: solid;
+	margin: auto;
+	height: 15rem;
+	width: 20rem;
+	margin-top: 10rem;
+	display: grid;
+	padding: 1rem;
 }
 
-.signup-container button {
+.signup-container button, .signin-container button {
 	display: grid;
 	margin: auto;
 	width: 80%;
 	height: 1.5rem;
 }
-.signup-container a {
+.signup-container a, .signin-container a{
 	display: grid;
 	margin: auto;
 }
-.input-container {
+.sign-container {
 	display: grid;
 	margin: 1.5rem auto;
 	width: 90%;
 	grid-template-columns: 1fr 5fr;
 	text-align: center;
 }
-.input-container input {
+.sign-container input {
 	display: grid;
 	margin: auto;
 	width: 80%;
@@ -38,7 +44,7 @@
 	height: 1.5rem;
 }
 
-.input-container span {
+.sign-container span {
 	margin: auto;
 	width: 4rem;
 	height: 1.5rem;

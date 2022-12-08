@@ -16,11 +16,21 @@ router.post("/signup", async (req, res) => {
 	signUpUser
 		.save()
 		.then((data) => {
-			res.json({token});
+			res.json({ token });
+			const token = createTokens({
+				username: signUpUser.username,
+				email: signUpUser.email,
+			});
+			res.cookie("accessToken", token, {
+				maxAge: 60 * 60 * 24 * 30 * 1000, // 30days
+				// httpOnly: false,
+			});
+			res.status(200).send({
+				message: "Login Successful",
+			});
 		})
 		.catch((error) => {
 			res.json(error);
-			// console.log(error);
 		});
 });
 

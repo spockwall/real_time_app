@@ -12,7 +12,7 @@
     padding: 0;
 }
 
-.navbar-item-container {
+.navbar-item-container, .welcome-container {
     display: flex;
     height: 5rem;
     width: 80%;
@@ -28,7 +28,17 @@
     width: 5rem;
 }
 
+.welcome-container .welcome{
+    font-size: 20px;
+}
+
 #body {
     margin: auto;
     width: 80%;
+}
+
+.main-container {
+    margin: 5rem auto;
+    width: 80%;
+    text-align: center;
 }
