@@ -1,6 +1,11 @@
 # real_time_app
 - computer network phase2 practice
-
+- tools
+  - React.js
+  - MongoDB
+  - Express
+  - JWT
+  - socket.io
 - implement funciton
   - web streaming/call
   - login/register
