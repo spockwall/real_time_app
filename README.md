@@ -6,7 +6,9 @@
   - Express
   - JWT
   - Socket.io
-- Implemented funciton
-  - web streaming/call
-  - login/register
-  - chat room
+- Implemented funcitons
+  - Login
+  - Logout
+  - Sign Up
+  - Web Streaming/Call
+  - Chat room
