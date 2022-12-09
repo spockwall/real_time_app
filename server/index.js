@@ -7,6 +7,8 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const routesUrls = require("./routes/signup");
 const routesUrls2 = require("./routes/signin");
+const routesUrls3 = require("./routes/signout");
+
 const cookieparser = require("cookie-parser");
 const { validateToken } = require("./jwt");
 
@@ -22,8 +24,11 @@ app.use(
 		credentials: true,
 	})
 );
+
+// login/logout/register
 app.use("/user", routesUrls);
 app.use("/user", routesUrls2);
+app.use("/user", routesUrls3);
 app.get("/", (req, res) => {
 	res.send("server is running");
 });

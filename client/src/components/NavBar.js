@@ -1,17 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import AuthContext from "../context/Auth";
-import { createBrowserHistory} from "history";
+import { createBrowserHistory } from "history";
+import axios from "axios";
 
 export default function NavBar() {
 	const history = createBrowserHistory();
+	const navigate = useNavigate();
 	const NavItem = (props) => {
 		return (
 			<div className="navitem">
 				<Link
 					to={props.url}
 					onClick={() => {
-						history.push(props.url, {from: history.location});
+						history.push(props.url, { from: history.location });
 					}}
 				>
 					{props.children}{" "}
@@ -19,7 +21,7 @@ export default function NavBar() {
 			</div>
 		);
 	};
-	const { auth } = useContext(AuthContext);
+	const { auth, setAuth } = useContext(AuthContext);
 	let navList = [
 		{
 			text: "Home",
@@ -38,6 +40,19 @@ export default function NavBar() {
 			url: "/videocall",
 		},
 	];
+	const logout = (e) => {
+		e.preventDefault(); // very important
+		axios
+			.post("http://localhost:4000/user/signout",{}, { withCredentials: true })
+			.then((data) => {
+				setAuth(false);
+				window.alert("sign out successfully");
+				navigate("/signin", { replace: true });
+			})
+			.catch((err) => {
+				window.alert("fail to sign in");
+			});
+	};
 	return auth ? (
 		<nav className="navbar">
 			<div className="navbar-item-container">
@@ -46,6 +61,9 @@ export default function NavBar() {
 						{item.text}
 					</NavItem>
 				))}
+				<button className="logout" onClick={logout}>
+					logout
+				</button>
 			</div>
 		</nav>
 	) : (

@@ -7,7 +7,6 @@ router.post("/signup", async (req, res) => {
 	// res.send("send");
 	const salt = await bcrypt.genSalt(10);
 	const securePassword = await bcrypt.hash(req.body.password, salt);
-	console.log("============================");
 	const signUpUser = new signUpTableCopy({
 		username: req.body.username,
 		email: req.body.email,
@@ -16,20 +15,19 @@ router.post("/signup", async (req, res) => {
 	signUpUser
 		.save()
 		.then((data) => {
-			res.json({ token });
 			const token = createTokens({
 				username: signUpUser.username,
 				email: signUpUser.email,
 			});
 			res.cookie("accessToken", token, {
 				maxAge: 60 * 60 * 24 * 30 * 1000, // 30days
-				// httpOnly: false,
 			});
 			res.status(200).send({
-				message: "Login Successful",
+				message: "Sign up Successful",
 			});
 		})
 		.catch((error) => {
+			console.log(error);
 			res.json(error);
 		});
 });
