@@ -1,12 +1,21 @@
 # real_time_app
-- Computer network phase2 practice
-- Tools
+- ### Computer network phase2 practice
+- ### Tools
   - React.js
   - MongoDB
+- ### Packages
+  - React-router-dom
+  - Axios
   - Express
-  - JWT
+  - Jsonwebtoken
   - Socket.io
-- Implemented funcitons
+  - Socket.io-client
+  - Simple-peer
+  - bcrypt
+  - cookie-parser
+  - dotenv
+  - Mongoose
+- ### Implemented funcitons
   - Login
   - Logout
   - Sign Up
