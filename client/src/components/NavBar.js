@@ -1,16 +1,25 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import AuthContext from "../context/Auth";
+import { createBrowserHistory} from "history";
 
 export default function NavBar() {
+	const history = createBrowserHistory();
 	const NavItem = (props) => {
 		return (
 			<div className="navitem">
-				<Link to={props.url}>{props.children}</Link>
+				<Link
+					to={props.url}
+					onClick={() => {
+						history.push(props.url, {from: history.location});
+					}}
+				>
+					{props.children}{" "}
+				</Link>
 			</div>
 		);
 	};
-	const { auth, setAuth } = useContext(AuthContext);
+	const { auth } = useContext(AuthContext);
 	let navList = [
 		{
 			text: "Home",

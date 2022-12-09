@@ -21,7 +21,7 @@ export default function Signup() {
 			.then((data) => {
 				setAuth(true);
 				window.alert("sign up successfully");
-				navigate("/");
+				navigate("/", { replace: true });
 			})
 			.catch((err) => {
 				console.log(err);

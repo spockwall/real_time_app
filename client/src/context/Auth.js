@@ -9,11 +9,9 @@ export const AuthProvider = ({ children }) => {
 		axios
 			.get("http://localhost:4000/valid", {withCredentials: true})
 			.then(() => {
-				console.log("good");
 				setAuth(true);
 			})
 			.catch((err) => {
-				console.log("bad");
 				setAuth(false);
 			});
 	}, []);

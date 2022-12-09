@@ -1,7 +1,12 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { SocketContext } from "../context/Stream";
+import { useNavigate } from "react-router-dom";
+import AuthContext from "../context/Auth";
 
 export default function VideoCall() {
+	const navigate = useNavigate();
+	const { auth } = useContext(AuthContext);
+	const [idToCall, setIdToCall] = useState("");
 	const {
 		myID,
 		myVideo,
@@ -17,7 +22,12 @@ export default function VideoCall() {
 		stream,
 	} = useContext(SocketContext);
 
-	const [idToCall, setIdToCall] = useState("");
+	useEffect(() => {
+		console.log(auth);
+		if (auth === false) {
+			navigate("/signin", { replace: true });
+		}
+	}, [auth]);
 	return (
 		<>
 			{call.isReceivingCall && !callAccepted && (

@@ -18,7 +18,8 @@ export default function Signin() {
 			.then((data) => {
 				setAuth(true);
 				window.alert("sign in successfully");
-				navigate("/");
+				navigate("/", { replace: true });
+
 			})
 			.catch((err) => {
 				console.log(err);
