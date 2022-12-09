@@ -11,9 +11,9 @@
   - Socket.io
   - Socket.io-client
   - Simple-peer
-  - bcrypt
-  - cookie-parser
-  - dotenv
+  - Bcrypt
+  - Cookie-parser
+  - Dotenv
   - Mongoose
 - ### Implemented funcitons
   - Login
