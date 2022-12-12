@@ -2,7 +2,7 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const router = express.Router();
 const signUpTableCopy = require("../models/signup");
-const { createTokens} = require("../service/jwt");
+const { createTokens } = require("../service/jwt");
 
 router.post("/signup", async (req, res) => {
 	// res.send("send");
@@ -22,6 +22,10 @@ router.post("/signup", async (req, res) => {
 			});
 			res.cookie("accessToken", token, {
 				maxAge: 60 * 60 * 24 * 30 * 1000, // 30days
+				sameSite: "none",
+				secure: true,
+				domain: "computer-network-phase2.onrender.com",
+				httpOnly: true,
 			});
 			res.status(200).send({
 				message: "Sign up Successful",
