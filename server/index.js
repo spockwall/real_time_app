@@ -2,7 +2,6 @@ const dotenv = require("dotenv");
 const express = require("express");
 const http = require("http");
 const { Server } = require("socket.io");
-// const server = require("./io");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const routesUrls = require("./routes/signup");
@@ -19,7 +18,8 @@ app.use(cookieparser());
 app.use(express.json()); // ?
 app.use(
 	cors({
-		origin: "*",
+		// origin: "http://localhost:3000",
+		origin: "https://computer-network-phase2.onrender.com",
 		credentials: true,
 	})
 );
@@ -39,7 +39,8 @@ app.get("/valid", validateToken, (req, res) => {
 const server = http.createServer(app);
 const io = new Server(server, {
 	cors: {
-		origin: "*",
+		// origin: "http://localhost:3000",
+		origin: "https://computer-network-phase2.onrender.com",
 		methods: ["GET", "POST"],
 	},
 });

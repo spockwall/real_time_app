@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import AuthContext from "../context/Auth";
 
 
-const socket = io.connect("http://localhost:3001");
+const socket = io.connect("https://computer-network-phase2-server.onrender.com:3001");
 
 const uid = function () {
 	return Date.now().toString(36) + Math.random().toString(36).substr(2);

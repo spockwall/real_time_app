@@ -17,7 +17,8 @@ export default function Signup() {
 			password,
 		};
 		axios
-			.post("https://computer-network-phase2.herokuapp.com/user/signup", info, { withCredentials: true })
+			// .post("http://localhost/user/signup", info, { withCredentials: true })
+			.post("https://computer-network-phase2-server.onrender.com/user/signup", info, { withCredentials: true })
 			.then((data) => {
 				setAuth(true);
 				window.alert("sign up successfully");
