@@ -19,8 +19,7 @@ app.use(cookieparser());
 app.use(express.json()); // ?
 app.use(
 	cors({
-		// origin: "http://localhost:3000",
-		origin: "https://computer-network-phase2.herokuapp.com",
+		origin: "http://localhost:3000",
 		credentials: true,
 	})
 );
@@ -40,7 +39,7 @@ app.get("/valid", validateToken, (req, res) => {
 const server = http.createServer(app);
 const io = new Server(server, {
 	cors: {
-		origin: "*",
+		origin: "http://localhost:3000",
 		methods: ["GET", "POST"],
 	},
 });
