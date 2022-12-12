@@ -19,7 +19,8 @@ app.use(express.json()); // ?
 app.use(
 	cors({
 		// origin: "http://localhost:3000",
-		origin: "https://computer-network-phase2.onrender.com",
+		// origin: "https://computer-network-phase2.onrender.com",
+		origin: "*",
 		credentials: true,
 	})
 );
@@ -41,6 +42,7 @@ const io = new Server(server, {
 	cors: {
 		// origin: "http://localhost:3000",
 		origin: "https://computer-network-phase2.onrender.com",
+		origin: "*",
 		methods: ["GET", "POST"],
 	},
 });
