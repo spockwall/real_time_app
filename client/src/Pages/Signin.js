@@ -14,12 +14,12 @@ export default function Signin() {
 			password,
 		};
 		axios
-			.post("http://localhost:4000/user/signin", info, { withCredentials: true })
+			// .post("http://localhost:4000/user/signin", info, { withCredentials: true })
+			.post("https://computer-network-phase2.herokuapp.com/user/signin", info, { withCredentials: true })
 			.then((data) => {
 				setAuth(true);
 				window.alert("Sign in successfully!");
 				navigate("/", { replace: true });
-
 			})
 			.catch((err) => {
 				console.log(err);

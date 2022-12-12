@@ -19,7 +19,8 @@ app.use(cookieparser());
 app.use(express.json()); // ?
 app.use(
 	cors({
-		origin: "http://localhost:3000",
+		// origin: "http://localhost:3000",
+		origin: "https://computer-network-phase2.herokuapp.com",
 		credentials: true,
 	})
 );
@@ -44,7 +45,7 @@ const io = new Server(server, {
 	},
 });
 require("./service/io")(io);
-// const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001;
 
 server.listen(3001, "0.0.0.0", () => {
 	console.log("server is running");

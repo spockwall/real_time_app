@@ -4,7 +4,8 @@ import { io } from "socket.io-client";
 import { createContext, useState, useRef, useEffect } from "react";
 
 const SocketContext = createContext();
-const socket = io("http://localhost:3001");
+// const socket = io("http://localhost:3001");
+const socket = io("https://computer-network-phase2.herokuapp.com/");
 
 const StreamContextProvider = ({ children }) => {
 	const [callAccepted, setCallAccepted] = useState(false);
