@@ -17,13 +17,13 @@ export default function Signin() {
 			.post("http://localhost:4000/user/signin", info, { withCredentials: true })
 			.then((data) => {
 				setAuth(true);
-				window.alert("sign in successfully");
+				window.alert("Sign in successfully!");
 				navigate("/", { replace: true });
 
 			})
 			.catch((err) => {
 				console.log(err);
-				window.alert("fail to sign in");
+				window.alert("Fail to sign in!");
 			});
 	};
 	return (

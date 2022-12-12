@@ -2,7 +2,7 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const router = express.Router();
 const signUpTableCopy = require("../models/signup");
-const { createTokens} = require("../jwt");
+const { createTokens} = require("../service/jwt");
 
 router.post("/signup", async (req, res) => {
 	// res.send("send");
