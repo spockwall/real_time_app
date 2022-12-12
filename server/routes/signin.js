@@ -19,13 +19,14 @@ router.post("/signin", async (req, res) => {
 						});
 					}
 					const token = createTokens(user);
-					res.cookie("accessToken", token, {
-						maxAge: 60 * 60 * 24 * 30 * 1000, // 30days
-						sameSite: "none",
-						secure: true,
-						domain: "computer-network-phase2.onrender.com",
-						httpOnly: true,
-					});
+					// res.cookie("accessToken", token, {
+					// 	maxAge: 60 * 60 * 24 * 30 * 1000, // 30days
+					// 	sameSite: "none",
+					// 	secure: true,
+					// 	domain: "computer-network-phase2.onrender.com",
+					// 	httpOnly: true,
+					// });
+					localStorage.setItem("accessToken", token);
 					res.status(200).send({
 						message: "Login Successful",
 					});
