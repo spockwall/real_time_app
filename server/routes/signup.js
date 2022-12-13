@@ -26,7 +26,7 @@ router.post("/signup", async (req, res) => {
 				sameSite: "none",
 				secure: true,
 				domain: "computer-network-phase2-server.onrender.com",
-				path="/",
+				path: "/",
 			});
 			res.status(200).send({
 				message: "Sign up Successful",

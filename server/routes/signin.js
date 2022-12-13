@@ -26,7 +26,7 @@ router.post("/signin", async (req, res) => {
 						secure: true,
 						domain: "computer-network-phase2-server.onrender.com",
 						httpOnly: true,
-						path="/",
+						path: "/",
 					});
 					res.status(200).send({
 						message: "Login Successful",
