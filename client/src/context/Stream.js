@@ -4,7 +4,7 @@ import { io } from "socket.io-client";
 import { createContext, useState, useRef, useEffect } from "react";
 
 const SocketContext = createContext();
-const socket = io("https://computer-network-phase2-server.onrender.com:3001");
+const socket = io("https://computer-network-phase2-server.onrender.com");
 
 const StreamContextProvider = ({ children }) => {
 	const [callAccepted, setCallAccepted] = useState(false);

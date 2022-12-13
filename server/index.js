@@ -45,7 +45,7 @@ const io = new Server(server, {
 require("./service/io")(io);
 const PORT = process.env.PORT || 3001;
 
-server.listen(3001, "0.0.0.0", () => {
+server.listen(3001, () => {
 	console.log("server is running");
 });
 

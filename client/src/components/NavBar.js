@@ -43,7 +43,6 @@ export default function NavBar() {
 	const logout = (e) => {
 		e.preventDefault(); // very important
 		axios
-			// .post("http://localhost:4000/user/signout", {}, { withCredentials: true })
 			.post("https://computer-network-phase2-server.onrender.com/user/signout", {}, { withCredentials: true })
 			.then((data) => {
 				setAuth(false);

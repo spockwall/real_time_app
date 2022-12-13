@@ -6,7 +6,7 @@ router.post("/signout", async (req, res) => {
 		// sameSite: "none",
 		// secure: true,
 		// domain: "computer-network-phase2.onrender.com",
-		// httpOnly: true,
+		httpOnly: true,
 		expires: new Date(1),
 	});
 	res.status(200).json({ success: true, message: "User logged out successfully" });

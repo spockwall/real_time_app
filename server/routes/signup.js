@@ -22,10 +22,10 @@ router.post("/signup", async (req, res) => {
 			});
 			res.cookie("accessToken", token, {
 				maxAge: 60 * 60 * 24 * 30 * 1000, // 30days
+				httpOnly: true,
 				// sameSite: "none",
 				// secure: true,
 				// domain: "computer-network-phase2.onrender.com",
-				// httpOnly: true,
 			});
 			res.status(200).send({
 				message: "Sign up Successful",

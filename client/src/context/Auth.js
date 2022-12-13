@@ -8,7 +8,6 @@ export const AuthProvider = ({ children }) => {
 	useEffect(() => {
 		axios.default.withCredentials = true;
 		axios
-			// .get("http://localhost:4000/valid", {withCredentials: true})
 			.get("https://computer-network-phase2-server.onrender.com/valid", {
 				withCredentials: true,
 			})
