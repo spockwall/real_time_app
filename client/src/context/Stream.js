@@ -16,9 +16,9 @@ const StreamContextProvider = ({ children }) => {
 	const [call, setCall] = useState({});
 	const [myID, setMyID] = useState("");
 
-	const myVideo = useRef();
-	const userVideo = useRef();
-	const connectionRef = useRef();
+	const myVideo = useRef(null);
+	const userVideo = useRef(null);
+	const connectionRef = useRef(null);
 
 	useEffect(() => {
 		navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((currentStream) => {

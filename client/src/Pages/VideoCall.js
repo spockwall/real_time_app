@@ -45,7 +45,7 @@ export default function VideoCall() {
 				</div>
 			)}
 			<div className="video-container">
-				{stream && (
+				{callAccepted && !callEnded && (
 					<video playsInline muted ref={myVideo} autoPlay className="video"></video>
 				)}
 			</div>
