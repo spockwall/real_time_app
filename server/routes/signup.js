@@ -24,7 +24,7 @@ router.post("/signup", async (req, res) => {
 				maxAge: 60 * 60 * 24 * 30 * 1000, // 30days
 				httpOnly: true,
 				sameSite: "none",
-				// secure: true,
+				secure: true,
 				domain: "computer-network-phase2-server.onrender.com",
 			});
 			res.status(200).send({

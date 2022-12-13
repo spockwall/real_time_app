@@ -4,7 +4,7 @@ const router = express.Router();
 router.post("/signout", async (req, res) => {
 	res.cookie("accessToken", "", {
 		sameSite: "none",
-		// secure: true,
+		secure: true,
 		domain: "computer-network-phase2-server.onrender.com",
 		httpOnly: true,
 		expires: new Date(1),

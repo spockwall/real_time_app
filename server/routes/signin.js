@@ -22,7 +22,7 @@ router.post("/signin", async (req, res) => {
 					res.cookie("accessToken", token, {
 						maxAge: 60 * 60 * 24 * 30 * 1000, // 30days
 						sameSite: "none",
-						// secure: true,
+						secure: true,
 						domain: "computer-network-phase2-server.onrender.com",
 						httpOnly: true,
 					});
