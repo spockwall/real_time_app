@@ -21,9 +21,9 @@ router.post("/signin", async (req, res) => {
 					const token = createTokens(user);
 					res.cookie("accessToken", token, {
 						maxAge: 60 * 60 * 24 * 30 * 1000, // 30days
-						// sameSite: "none",
+						sameSite: "none",
 						// secure: true,
-						// domain: "computer-network-phase2.onrender.com",
+						domain: "computer-network-phase2-server.onrender.com",
 						httpOnly: true,
 					});
 					res.status(200).send({
