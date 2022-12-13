@@ -17,6 +17,12 @@ dotenv.config();
 mongoose.connect(process.env.DATABASE_ACCESS, (data) => console.log("connected to database!!"));
 app.use(cookieparser());
 app.use(express.json()); // ?
+// 所有的請求都會經過這個 middleware
+const addSecurityHeaders = function (req, res, next) {
+	res.header("X-Content-Type-Options", "nosniff");
+	next();
+};
+app.use(addSecurityHeaders);
 app.use(
 	cors({
 		origin: "https://computer-network-phase2.onrender.com",
