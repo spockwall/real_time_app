@@ -14,8 +14,7 @@ const createTokens = (user) => {
 };
 
 const validateToken = (req, res, next) => {
-	// const accessToken = req.cookies["accessToken"];
-	const accessToken = localStorage.getItem("accessToken");
+	const accessToken = req.cookies["accessToken"];
 	if (!accessToken) {
 		//check if token exist
 		return res.status(400).json({ error: "not authed!!" });
