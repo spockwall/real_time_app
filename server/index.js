@@ -12,6 +12,7 @@ const cookieparser = require("cookie-parser");
 const { validateToken } = require("./service/jwt");
 
 const app = express();
+app.set("trust proxy", 1);
 dotenv.config();
 mongoose.connect(process.env.DATABASE_ACCESS, (data) => console.log("connected to database!!"));
 app.use(cookieparser());
