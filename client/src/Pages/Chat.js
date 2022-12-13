@@ -4,7 +4,9 @@ import ChatBox from "../components/ChatBox";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../context/Auth";
 
-const socket = io.connect("https://computer-network-phase2-server.onrender.com");
+const socket = io.connect("https://computer-network-phase2-server.onrender.com", {
+	transports: ["websocket"],
+});
 
 const uid = function () {
 	return Date.now().toString(36) + Math.random().toString(36).substr(2);
