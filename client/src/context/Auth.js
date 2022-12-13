@@ -10,6 +10,7 @@ export const AuthProvider = ({ children }) => {
 		axios
 			.get("https://computer-network-phase2-server.onrender.com/valid", {
 				withCredentials: true,
+				"x-content-type-options": true,
 			})
 			.then(() => {
 				setAuth(true);

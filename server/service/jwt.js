@@ -14,7 +14,7 @@ const createTokens = (user) => {
 };
 
 const validateToken = (req, res, next) => {
-	const accessToken = req.cookies["accessToken"];
+	const accessToken = req.cookies["computernetworkphase2Token"];
 	if (!accessToken) {
 		//check if token exist
 		return res.status(400).json({ error: "not authed!!" });

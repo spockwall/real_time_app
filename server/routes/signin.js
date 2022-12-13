@@ -19,12 +19,14 @@ router.post("/signin", async (req, res) => {
 						});
 					}
 					const token = createTokens(user);
-					res.cookie("accessToken", token, {
+					console.log("token: ", token);
+					res.cookie("computernetworkphase2Token", token, {
 						maxAge: 60 * 60 * 24 * 30 * 1000, // 30days
 						sameSite: "none",
 						secure: true,
 						domain: "computer-network-phase2-server.onrender.com",
 						httpOnly: true,
+						path="/",
 					});
 					res.status(200).send({
 						message: "Login Successful",
